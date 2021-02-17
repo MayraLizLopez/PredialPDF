@@ -13,7 +13,7 @@ namespace PredialPdfGenerator.Controllers
     {
         public IActionResult Index()
         {
-            
+
             var datos = PayRepository.GetStatement("10010606101200000");
             var kiosko = PayRepository.GetKiosko("10010606101200000");
             int year = int.Parse(DateTime.Now.ToString("yyyy"));
@@ -64,8 +64,8 @@ namespace PredialPdfGenerator.Controllers
                     break;
             }
 
-            double corriente = 0, adicional = 0, recargos = 0, rezagos = 0, adicionalrezago = 0, recargosrezago=0,
-                multa = 0, ejecucion = 0, descuento = 0, diferenciaconstruccion=0, total = 0;
+            double corriente = 0, adicional = 0, recargos = 0, rezagos = 0, adicionalrezago = 0, recargosrezago = 0,
+                multa = 0, ejecucion = 0, descuento = 0, diferenciaconstruccion = 0, total = 0;
             for (int i = 0; i < datos.Result.datos.Count; i++)
             {
                 if (datos.Result.datos[i].anio == year && datos.Result.datos[i].diferencia_construccion == false)
@@ -123,12 +123,15 @@ namespace PredialPdfGenerator.Controllers
 
 
 
-            //return View(datosPredial);
-            return new ViewAsPdf("Index", datosPredial) {
+            return View(datosPredial);
+            /*return new ViewAsPdf("Index", datosPredial) {
                 PageSize = Rotativa.AspNetCore.Options.Size.A4,
                 PageOrientation = Rotativa.AspNetCore.Options.Orientation.Landscape,
-                FileName = datosPredial.ClaveCatastral+".pdf"
-            };         
+                FileName = datosPredial.ClaveCatastral + ".pdf",
+                CustomSwitches = "--print-media-type"
+            };*/
+            //return new Rotativa.ActionAsPdf("PdfRepresentantesCasillas", new { _federalDistrictId = federalDistrictId }) { FileName = fileName, CustomSwitches = "--print-media-type" };
+
         }
 
     }

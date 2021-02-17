@@ -1,4 +1,25 @@
-﻿let value = $("#referenciaOxxo").html();
+﻿$(document).ready(() => {
+
+    const $elementoParaConvertir = $("#vista");
+    html2pdf().set({
+        margin: 1,
+        filename: 'documento.pdf',
+        image: {
+            type: 'jpeg',
+            quality: 0.98
+        },
+        html2canvas: {
+            scale: 3,
+            letterRendering: true,
+        },
+        jsPDF: {
+            unit: "in",
+            format: "a3",
+            orientation: 'portrait'
+        }
+    }).from($elementoParaConvertir).save().catch(err => console.log(err));
+});
+let value = $("#referenciaOxxo").html();
 var btype = "code128";
 var renderer = "css";
 
@@ -20,3 +41,5 @@ if (renderer == 'canvas') {
     $("#canvasTarget").hide();
     $("#barcodeTarget").html("").show().barcode(value, btype, settings);
 }
+
+
