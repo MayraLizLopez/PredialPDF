@@ -124,7 +124,11 @@ namespace PredialPdfGenerator.Controllers
 
 
             //return View(datosPredial);
-            return new ViewAsPdf("Index", datosPredial);            
+            return new ViewAsPdf("Index", datosPredial) {
+                PageSize = Rotativa.AspNetCore.Options.Size.A4,
+                PageOrientation = Rotativa.AspNetCore.Options.Orientation.Landscape,
+                FileName = datosPredial.ClaveCatastral+".pdf"
+            };         
         }
 
     }

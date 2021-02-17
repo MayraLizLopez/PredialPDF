@@ -13,5 +13,6 @@
     <Folder Include="Models\Entities\" />
     <Folder Include="Controllers\Entities\" />
     <Folder Include="wwwroot\fonts\" />
+    <Folder Include="Rotativa\" />
   </ItemGroup>
 </Project>
