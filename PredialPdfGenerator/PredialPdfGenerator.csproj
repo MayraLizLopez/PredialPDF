@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\css\estilos.min.css" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Rotativa.AspNetCore" Version="1.2.0-beta" />
   </ItemGroup>
 
@@ -14,5 +22,9 @@
     <Folder Include="Controllers\Entities\" />
     <Folder Include="wwwroot\fonts\" />
     <Folder Include="Rotativa\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
   </ItemGroup>
 </Project>

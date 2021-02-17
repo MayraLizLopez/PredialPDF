@@ -120,15 +120,12 @@ namespace PredialPdfGenerator.Controllers
                 FechaVencimiento = fecha.AddMonths(1).ToString("dd/MM/yyyy"),
                 FechaVencimientoTxt = diaFin.ToString() + " de " + nombreMes + " " + yearFin.ToString()
             };
-
-
-
-            //return View(datosPredial);
-            return new ViewAsPdf("Index", datosPredial) {
-                PageSize = Rotativa.AspNetCore.Options.Size.A4,
-                PageOrientation = Rotativa.AspNetCore.Options.Orientation.Landscape,
-                FileName = datosPredial.ClaveCatastral+".pdf"
-            };         
+            return View(datosPredial);
+            //return new ViewAsPdf("Index", datosPredial) {
+            //    PageSize = Rotativa.AspNetCore.Options.Size.A4,
+            //    PageOrientation = Rotativa.AspNetCore.Options.Orientation.Landscape,
+            //    FileName = datosPredial.ClaveCatastral+".pdf"
+            //};         
         }
 
     }
